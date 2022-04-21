@@ -21,10 +21,10 @@ const Header = () => {
             : "md:fixed md:w-screen md:flex justify-around items-center w-full py-6 bg-white shadow-lg z-10 "
         }
       >
-        <div className=" md:mr-20 ">
+        <div className=" md:mr-20">
           <NavLink
             to="/home"
-            className=" text-2xl font-bold no-underline flex md:justify-start justify-center items-center"
+            className="flex items-center justify-center text-2xl font-bold no-underline md:justify-start"
           >
             <img
               src="https://i.ibb.co/zJtk1T5/Octocat.png"
@@ -42,7 +42,7 @@ const Header = () => {
             </span>
           </NavLink>
         </div>
-        <div className="flex md:flex-row flex-col-reverse ">
+        <div className="flex flex-col-reverse md:flex-row ">
           <Navbar collapseOnSelect expand="lg">
             <Container>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -59,7 +59,7 @@ const Header = () => {
                       Home
                     </span>
                   </NavLink>
-                  <NavLink to="/exploreProducts">
+                  <NavLink to="/bookmarks">
                     <span
                       className={
                         navbar
@@ -81,8 +81,6 @@ const Header = () => {
                       Repositorys
                     </span>
                   </NavLink>
-                 
-               
                 </Nav>
               </Navbar.Collapse>
             </Container>
@@ -92,7 +90,7 @@ const Header = () => {
               <div>
                 <button
                   onClick={logOut}
-                  className=" text-sm no-underline text-black uppercase font-bold   bg-yellow-400 px-6  rounded-full md:rounded-none py-2 mr-5 tracking-widest"
+                  className="px-6 py-2 mr-5 text-sm font-bold tracking-widest text-black no-underline uppercase bg-yellow-400 rounded-full md:rounded-none"
                 >
                   <span className="text-xs">Logout</span>
                 </button>
@@ -101,7 +99,7 @@ const Header = () => {
               <div className="flex items-center">
                 <NavLink
                   to="/login"
-                  className=" text-sm no-underline text-black uppercase font-bold   bg-yellow-400 px-6 py-2 tracking-widest mt-2 md:mt-0"
+                  className="px-6 py-2 mt-2 text-sm font-bold tracking-widest text-black no-underline uppercase bg-yellow-400 md:mt-0"
                 >
                   Login
                 </NavLink>
@@ -110,12 +108,12 @@ const Header = () => {
 
             {user.email && (
               <div>
-                <NavLink to="/home" className=" text-2xl text-black">
+                <NavLink to="/home" className="text-2xl text-black ">
                   <div className="flex items-center">
                     <img
                       src={user.photoURL}
                       alt=""
-                      className="rounded-full border-2 border-yellow-400 w-12 h-12 mr-1"
+                      className="w-12 h-12 mr-1 border-2 border-yellow-400 rounded-full"
                     />
                     <span
                       className={

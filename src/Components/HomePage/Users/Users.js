@@ -41,13 +41,13 @@ const Users = () => {
   return (
     <div className="pt-28">
       {" "}
-      <h1 className=" text-center text-xl">Our Users</h1>
-      <div className=" grid grid-cols-3 ">
+      <h1 className="text-xl text-center ">Our Users</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {users.map((user) => {
           return (
-            <div className=" pt-10 mx-5">
+            <div className="pt-10 mx-5 ">
               <Link to={`/users/${user.id}`}>
-                <button className=" text-lg border-2 shadow-lg">
+                <button className="text-lg border-2 shadow-lg ">
                   {" "}
                   name:{user.name}
                 </button>

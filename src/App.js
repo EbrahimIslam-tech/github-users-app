@@ -6,6 +6,7 @@ import Header from "./Components/HomePage/Header";
 import Admin from "./Components/HomePage/Admin";
 import PrivateRoute from "./Components/privateRoute/PrivateRoute";
 import Repositorys from "./Components/HomePage/Repositorys/Repositorys";
+import Bookmarks from './Components/HomePage/Bookmarks/Bookmarks';
 
 function App() {
   return (
@@ -16,14 +17,21 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/login" element={<LoginRegistration />} />
-            <Route path="/users/:userid" element={<Repositorys />} />
+            {/* <Route path="/users/:userid" element={} /> */}
 
             <Route
-              path="/admin"
+              path="/users/:userid"
               element={
                 <PrivateRoute>
-                  {" "}
-                  <Admin></Admin>{" "}
+                  <Repositorys />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/bookmarks"
+              element={
+                <PrivateRoute>
+                  <Bookmarks />
                 </PrivateRoute>
               }
             />
