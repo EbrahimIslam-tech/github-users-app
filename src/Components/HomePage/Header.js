@@ -13,12 +13,12 @@ const Header = () => {
   };
   window.addEventListener("scroll", changBackground);
   return (
-    <div>
+    <div className="z-50">
       <nav
         className={
           navbar
-            ? "md:fixed md:w-screen md:flex justify-around items-center w-full py-6 "
-            : "md:fixed md:w-screen md:flex justify-around items-center w-full py-6 bg-white shadow-lg z-10 "
+            ? "md:fixed md:w-screen md:flex justify-around items-center w-full py-6 shadow-lg z-50 "
+            : "md:fixed md:w-screen md:flex justify-around items-center w-full py-6 bg-white shadow-lg z-50  "
         }
       >
         <div className=" md:mr-20">
@@ -34,7 +34,7 @@ const Header = () => {
             <span
               className={
                 navbar
-                  ? " md:text-white font-mono mt-2"
+                  ? " md:text-black font-mono mt-2"
                   : " md:text-black font-mono mt-2"
               }
             >
@@ -52,7 +52,7 @@ const Header = () => {
                     <span
                       className={
                         navbar
-                          ? "font-bold uppercase md:mr-6 mr-0 no-underline group md:text-white hover:text-red-600"
+                          ? "font-bold uppercase md:mr-6 mr-0 no-underline group md:text-black hover:text-red-600"
                           : "font-bold uppercase md:mr-6 mr-0 no-underline group md:text-black  hover:text-red-700"
                       }
                     >
@@ -63,7 +63,7 @@ const Header = () => {
                     <span
                       className={
                         navbar
-                          ? "font-bold uppercase md:mx-6  no-underline md:text-white hover:text-red-600 "
+                          ? "font-bold uppercase md:mx-6  no-underline md:text-black hover:text-red-600 "
                           : "font-bold uppercase md:mx-6  no-underline md:text-black hover:text-red-700 "
                       }
                     >
@@ -74,7 +74,7 @@ const Header = () => {
                     <span
                       className={
                         navbar
-                          ? "font-bold uppercase md:mx-6  no-underline md:text-white hover:text-red-600 "
+                          ? "font-bold uppercase md:mx-6  no-underline md:text-black hover:text-red-600 "
                           : "font-bold uppercase md:mx-6  no-underline md:text-black hover:text-red-700 "
                       }
                     >
@@ -118,7 +118,7 @@ const Header = () => {
                     <span
                       className={
                         navbar
-                          ? "font-semibold text-xs md:text-white"
+                          ? "font-semibold text-xs md:text-black"
                           : "font-semibold text-xs text-black"
                       }
                     >

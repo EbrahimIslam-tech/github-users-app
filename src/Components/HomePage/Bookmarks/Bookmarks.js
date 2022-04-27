@@ -4,15 +4,14 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { db } from "../../../Firebase/Firebase-config";
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+
 import useAuth from "./../../../hooks/useAuth";
 
 const Bookmarks = () => {
   const [bookmarks, setBookmarks] = useState([]);
-  const bookmarkCollectionRef = collection(db, "bookmarks");
-  const navigate = useNavigate();
+  //   console.log(bookmarks);
+
   const { user } = useAuth();
-  const q = query(collection(db, "cities"), where("capital", "==", true));
 
   useEffect(() => {
     const getBookmarks = async () => {
@@ -26,19 +25,13 @@ const Bookmarks = () => {
       const querySnapshot = await getDocs(q);
       querySnapshot.forEach((doc) => {
         arr.push({ id: doc.id, ...doc.data() });
-        // doc.data() is never undefined for query doc snapshots
-        // console.log(doc.id, " => ", doc.data());
       });
       setBookmarks(arr);
-
-      //   const data = await getDocs(bookmarkCollectionRef);
-      //   // console.log(data);
-      //   setBookmarks(data.docs.map((doc) => ({ ...doc.data(), id: doc.id })));
     };
 
     getBookmarks();
   }, []);
-  console.log(bookmarks);
+  //   console.log(bookmarks);
   return (
     <div>
       <div className="flex justify-around mt-10">
@@ -54,7 +47,7 @@ const Bookmarks = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
         {bookmarks.map((bookmark) => {
           return (
-            <div className="pt-10 mx-5 ">
+            <div key={bookmark.id} className="pt-10 mx-5 ">
               <a
                 href={bookmark.bookmarks}
                 target="_blank"
@@ -62,7 +55,6 @@ const Bookmarks = () => {
               >
                 {bookmark.bookmarks}
               </a>
-              {/* <button> {bookmark.bookmarks}</button> */}
             </div>
           );
         })}

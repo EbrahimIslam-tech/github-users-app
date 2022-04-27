@@ -1,13 +1,6 @@
 import { useEffect, useState } from "react";
 import { auth, db } from "../Firebase/Firebase-config";
-import {
-  addDoc,
-  collection,
-  deleteDoc,
-  doc,
-  getDocs,
-  updateDoc,
-} from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 
 import {
   signInWithPopup,
@@ -21,7 +14,7 @@ import {
 
 const useFirebase = () => {
   const [user, setUser] = useState({});
-  console.log(user);
+  // console.log(user);
   const [isLoading, setIsLoading] = useState(true);
   const [authError, setAuthError] = useState("");
   const [admin, setAdmin] = useState(false);
@@ -29,15 +22,6 @@ const useFirebase = () => {
   const googleProvider = new GoogleAuthProvider();
 
   const usersCollectionRef = collection(db, "users");
-
-  // const createUser = async () => {
-  //   await addDoc(usersCollectionRef, {
-  //     name: user.name,
-  //     email: user.email,
-  //     githubname: user.githubname,
-  //     phoneNumber: user.phoneNumber,
-  //   });
-  // };
 
   const registerUser = (
     email,
@@ -123,17 +107,6 @@ const useFirebase = () => {
       email: email,
     });
   };
-  // const saveUser = (email, displayName, method) => {
-  //   const user = { email, displayName };
-
-  //   fetch("https://salty-river-79195.herokuapp.com/users", {
-  //     method: method,
-  //     headers: {
-  //       "content-type": "application/json",
-  //     },
-  //     body: JSON.stringify(user),
-  //   }).then();
-  // };
 
   const logOut = () => {
     setIsLoading(true);
